@@ -32,13 +32,25 @@ def view_tasks():
         status = "Done" if task["completed"] else "Not Done"
         print(f"{idx}. {task['task']} - {status}")
         
+"""Mark a task as completed"""
+def mark_completed(index):
+    tasks = load_tasks()
+    try:
+        tasks[index - 1]["completed"] = True
+        save_tasks(tasks)
+        print(f"Task {index} marked as completed!")
+    except IndexError:
+        print("Invalid Task Number")
+
+        
 """Main"""
 def main():
     while True:
         print("\n---- To-Do List Manager ----")
         print("1. Add Task")
         print("2. View Task")
-        print("3. Exit")
+        print("3.Mark Task Completed")
+        print("4. Exit")
 
 
         choice = input("Enter the Choice: ")
@@ -49,6 +61,9 @@ def main():
         elif choice == "2":
             view_tasks()
         elif choice == "3":
+            index = int(input('Enter the task number to mark completed: '))
+            mark_completed(index)
+        elif choice == "4":
             print("Exiting To-Do List Manager...")
             break
         else:
