@@ -31,14 +31,27 @@ def view_tasks():
     for idx, task in enumerate(tasks, start=1):
         status = "Done" if task["completed"] else "Not Done"
         print(f"{idx}. {task['task']} - {status}")
-        
+
+"""delete a task"""
+
+def delete_task(index):
+    tasks = load_tasks()
+    try:
+        removed = tasks.pop(index -1)
+        save_tasks(tasks)
+        print(f"Deleted task: {removed['task']}")
+    except IndexError:
+        print("Invalid Task Number")
+
+
 """Main"""
 def main():
     while True:
         print("\n---- To-Do List Manager ----")
         print("1. Add Task")
         print("2. View Task")
-        print("3. Exit")
+        print("4. Delete task")
+        print("5. Exit")
 
         choice = input("Enter the Choice: ")
 
@@ -47,7 +60,10 @@ def main():
             add_task(task)
         elif choice == "2":
             view_tasks()
-        elif choice == "3":
+        elif choice == "4":
+            index = int(input("Enter task number to delete: "))
+            delete_task(index)
+        elif choice == "5":
             print("Exiting To-Do List Manager...")
             break
         else:
