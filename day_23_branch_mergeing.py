@@ -42,6 +42,16 @@ def mark_completed(index):
     except IndexError:
         print("Invalid Task Number")
 
+"""delete task"""
+def delete_task(index):
+    tasks = load_tasks()
+    try:
+        removed = tasks.pop(index - 1)
+        save_tasks(tasks)
+        print(f"Deleted task: {removed['task']}")
+    except IndexError:
+        print("Invalid task number.")
+
         
 """Main"""
 def main():
@@ -50,7 +60,8 @@ def main():
         print("1. Add Task")
         print("2. View Task")
         print("3.Mark Task Completed")
-        print("4. Exit")
+        print("4. Delete Task")
+        print("5. Exit")
 
 
         choice = input("Enter the Choice: ")
@@ -64,10 +75,13 @@ def main():
             index = int(input('Enter the task number to mark completed: '))
             mark_completed(index)
         elif choice == "4":
+            index = int(input("Enter task number to delete: "))
+            delete_task(index)
+        elif choice == "5":
             print("Exiting To-Do List Manager...")
             break
         else:
-            print("Invalid Choice. Try again.")
+            print("Invalid choice, try again.")
 
 if __name__ == "__main__":
     main()
