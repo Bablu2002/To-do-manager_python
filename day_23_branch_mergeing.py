@@ -38,7 +38,7 @@ def main():
         print("\n---- To-Do List Manager ----")
         print("1. Add Task")
         print("2. View Task")
-        print("5. Exit")
+        print("3. Exit")
 
         choice = input("Enter the Choice: ")
 
@@ -47,7 +47,7 @@ def main():
             add_task(task)
         elif choice == "2":
             view_tasks()
-        elif choice == "5":
+        elif choice == "4":
             print("Exiting To-Do List Manager...")
             break
         else:
