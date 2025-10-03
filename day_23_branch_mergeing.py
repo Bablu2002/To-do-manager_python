@@ -50,6 +50,7 @@ def main():
         print("1. Add Task")
         print("2. View Task")
         print("3.Mark Task Completed")
+        print("4. Exit")
 
 
         choice = input("Enter the Choice: ")
@@ -62,6 +63,11 @@ def main():
         elif choice == "3":
             index = int(input('Enter the task number to mark completed: '))
             mark_completed(index)
+        elif choice == "4":
+            print("Exiting To-Do List Manager...")
+            break
+        else:
+            print("Invalid Choice. Try again.")
 
 if __name__ == "__main__":
     main()
