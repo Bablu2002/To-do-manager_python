@@ -40,6 +40,7 @@ def main():
         print("2. View Task")
         print("3. Exit")
 
+
         choice = input("Enter the Choice: ")
 
         if choice == "1":
@@ -51,7 +52,7 @@ def main():
             print("Exiting To-Do List Manager...")
             break
         else:
-            print("Invalid Choice try again")
+            print("Invalid Choice. Try again.")
 
 if __name__ == "__main__":
     main()
