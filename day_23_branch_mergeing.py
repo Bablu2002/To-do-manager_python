@@ -47,7 +47,7 @@ def main():
             add_task(task)
         elif choice == "2":
             view_tasks()
-        elif choice == "4":
+        elif choice == "3":
             print("Exiting To-Do List Manager...")
             break
         else:
